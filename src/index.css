@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.color-primary{
+    background-color: #23BE0A;
+}
+
+.color-secondary{
+    background-color: #59C6D2;
+}
+
+.active {
+    color: #23BE0A;
+    border: 1px solid #23BE0A;
+}
