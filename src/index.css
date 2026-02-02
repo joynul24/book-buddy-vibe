@@ -1,13 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html {
+    overflow-y: scroll;
+}
 
-.color-primary{
+.font-1 {
+    font-family: "Work Sans", sans-serif;
+}
+
+.font-2 {
+    font-family: "Playfair Display", serif;
+}
+
+.color-primary {
     background-color: #23BE0A;
 }
 
-.color-secondary{
+.color-secondary {
     background-color: #59C6D2;
 }
 
