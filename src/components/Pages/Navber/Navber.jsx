@@ -2,11 +2,14 @@ import { NavLink } from "react-router-dom"
 
 export default function Navber() {
 
-    const links = <>
-    <li><NavLink to={'/'}>Home</NavLink></li>
-    <li><NavLink to={'/listed-books'}>Listed Books</NavLink></li>
-    <li><NavLink to={'/read-books'}>Pages to Read</NavLink></li>
-    </>
+  const links = (
+  <>
+    <li><NavLink to="/">Home</NavLink></li>
+    <li><NavLink to="/listed-books">Listed Books</NavLink></li>
+    <li><NavLink to="/read-books">Pages to Read</NavLink></li>
+  </>
+);
+
 
   return (
     <div className="navbar bg-base-100 shadow-sm font-1">
