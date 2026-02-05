@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom"
-import { getStoredReadList, getStoredWishList } from "../../../utility/addToDb";
+import { getStoredReadList, getStoredWishList, removeFromStoredReadList, removeFromStoredWishList } from "../../../utility/addToDb";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ReadBookTab from "../../ReadBookTab/ReadBookTab";
@@ -24,6 +24,16 @@ export default function ListedBooks() {
     const readWishList = allBooks.filter(book => storedWishListInt.includes(book.bookId))
     setWishList(readWishList)
   }, [])
+
+  const handleDeleteReadBook = (id) => {
+    removeFromStoredReadList(id); 
+    setReadBooks(prev => prev.filter(book => book.bookId !== id));
+  };
+
+  const handleDeleteWishList = (id) => {
+    removeFromStoredWishList(id); 
+    setWishList(prev => prev.filter(book => book.bookId !== id));
+  };
 
   return (
     <div>
@@ -51,19 +61,19 @@ export default function ListedBooks() {
             <div>
               {
                 readBooks.map(book => (
-                  <ReadBookTab key={book.bookId} book={book}></ReadBookTab>
+                  <ReadBookTab key={book.bookId} book={book} onDelete={handleDeleteReadBook}></ReadBookTab>
                 ))
               }
             </div>
           </TabPanel>
           <TabPanel>
-           <div>
-            {
-              wishList.map(book => (
-                <WishLIstTab key={book.bookId} book={book}></WishLIstTab>
-              ))
-            }
-           </div>
+            <div>
+              {
+                wishList.map(book => (
+                  <WishLIstTab key={book.bookId} book={book} onDelete={handleDeleteWishList}></WishLIstTab>
+                ))
+              }
+            </div>
           </TabPanel>
         </Tabs>
       </div>

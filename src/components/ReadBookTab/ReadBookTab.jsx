@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 
-export default function ReadBookTab({book}) {
+export default function ReadBookTab({book, onDelete}) {
   return (
      <div 
       key={book.bookId} 
@@ -36,11 +37,13 @@ export default function ReadBookTab({book}) {
           ))}
         </div>
 
-        {/* View Details Button */}
-        <div className="mt-4">
-          <button className="px-6 py-2 bg-cyan-500 text-white font-semibold rounded-lg shadow hover:bg-cyan-700 transition">
-            View Details
-          </button>
+        {/* Action Buttons */}
+        <div className="mt-4 flex gap-4"> 
+          <Link to={`/bookDetails/${book.bookId}`}> 
+        <button className="px-6 py-2 bg-cyan-500 text-white font-semibold rounded-lg shadow hover:bg-cyan-700 transition"> View Details 
+          </button> 
+          </Link> 
+          <button onClick={() => onDelete(book.bookId)} className="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg shadow hover:bg-red-700 transition" > Delete </button>
         </div>
       </div>
     </div>

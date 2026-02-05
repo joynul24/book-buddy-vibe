@@ -9,6 +9,7 @@ import ReadBooks from './components/Pages/ReadBooks/ReadBooks.jsx';
 import Home from './components/Pages/Home/Home.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import BookDetails from './components/BookDetails/BookDetails.jsx';
+import { ToastContainer } from 'react-toastify';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+      <ToastContainer position='top-right' autoClose={2000}/>
     </>
   )
 }

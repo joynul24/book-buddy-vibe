@@ -6,10 +6,10 @@ export default function BookDetails() {
     const data = useLoaderData();
     const book = data.find(item => item.bookId === parseInt(bookId));
 
-    const handleMarkAsRead = (id)=> {
+    const handleMarkAsRead = (id) => {
         addToStoredList(id)
     }
-    const handleWishList = (id)=> {
+    const handleWishList = (id) => {
         addStoredWishList(id)
     }
 
@@ -36,10 +36,10 @@ export default function BookDetails() {
                         } </div><p className="text-gray-700 font-1 leading-relaxed">{book.review}</p>
                     {/* Action Buttons */}
                     <div className="flex flex-wrap gap-4 mt-6 font-2">
-                        <button onClick={()=>handleMarkAsRead(book.bookId)} className="px-6 py-2 bg-[#50B1C9] text-white font-semibold rounded-lg shadow hover:bg-cyan-700 transition">Mark as Read</button>
-                          <button onClick={()=>handleWishList(book.bookId)} className="px-6 py-2 bg-[#23BE0A] text-white font-semibold rounded-lg shadow hover:bg-green-700 transition">Add to Wishlist</button>
+                        <button onClick={() => handleMarkAsRead(book.bookId)} className="px-6 py-2 bg-[#50B1C9] text-white font-semibold rounded-lg shadow hover:bg-cyan-700 transition">Mark as Read</button>
+                        <button onClick={() => handleWishList(book.bookId)} className="px-6 py-2 bg-[#23BE0A] text-white font-semibold rounded-lg shadow hover:bg-green-700 transition">Add to Wishlist</button>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     )

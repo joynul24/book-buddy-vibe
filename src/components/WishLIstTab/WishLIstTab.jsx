@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom";
 
-export default function WishLIstTab({book}) {
+export default function WishLIstTab({ book, onDelete }) {
   return (
-     <div 
-      key={book.bookId} 
+    <div
+      key={book.bookId}
       className="flex flex-col md:flex-row gap-6 mt-8 mb-8 p-6 bg-white shadow rounded-lg font-1"
     >
       {/* Left: Image */}
       <div className="bg-gray-200 flex justify-center items-center p-4 md:w-1/4 rounded-2xl">
-        <img 
-          className="w-32 h-44 md:w-40 md:h-56 object-cover rounded" 
-          src={book.image} 
-          alt={book.bookName} 
+        <img
+          className="w-32 h-44 md:w-40 md:h-56 object-cover rounded"
+          src={book.image}
+          alt={book.bookName}
         />
       </div>
 
@@ -27,8 +28,8 @@ export default function WishLIstTab({book}) {
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mt-2">
           {book.tags.map(tag => (
-            <span 
-              key={tag} 
+            <span
+              key={tag}
               className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm"
             >
               {tag}
@@ -36,10 +37,13 @@ export default function WishLIstTab({book}) {
           ))}
         </div>
 
-        {/* View Details Button */}
-        <div className="mt-4">
-          <button className="px-6 py-2 bg-cyan-500 text-white font-semibold rounded-lg shadow hover:bg-cyan-700 transition">
-            View Details
+        {/* Action Buttons */}
+        <div className="mt-4 flex gap-4">
+          <Link to={`/bookDetails/${book.bookId}`}>
+            <button className="px-6 py-2 bg-cyan-500 text-white font-semibold rounded-lg shadow hover:bg-cyan-700 transition"> View Details
+            </button>
+          </Link>
+          <button onClick={() => onDelete(book.bookId)} className="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg shadow hover:bg-red-700 transition" > Delete
           </button>
         </div>
       </div>
