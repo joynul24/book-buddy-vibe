@@ -5,11 +5,11 @@ import {
 } from "react-router-dom";
 import Root from './components/Root/Root.jsx';
 import ListedBooks from './components/Pages/ListedBooks/ListedBooks.jsx';
-import ReadBooks from './components/Pages/ReadBooks/ReadBooks.jsx';
 import Home from './components/Pages/Home/Home.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import BookDetails from './components/BookDetails/BookDetails.jsx';
 import { ToastContainer } from 'react-toastify';
+import Dashboard from './components/Pages/Dashboard/Dashboard.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,8 +27,8 @@ const router = createBrowserRouter([
         loader: ()=> fetch("/booksData.json")
       },
       {
-        path: "read-books",
-        element: <ReadBooks></ReadBooks>
+        path: "dashboard",
+        element: <Dashboard></Dashboard>
       },
       {
         path: "bookDetails/:bookId",

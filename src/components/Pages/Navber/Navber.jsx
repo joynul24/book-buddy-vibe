@@ -6,7 +6,7 @@ export default function Navber() {
   <>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to="/listed-books">Listed Books</NavLink></li>
-    <li><NavLink to="/read-books">Pages to Read</NavLink></li>
+    <li><NavLink to="/dashboard">Dashboard</NavLink></li>
   </>
 );
 
